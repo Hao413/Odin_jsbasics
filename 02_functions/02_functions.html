@@ -11,11 +11,54 @@
 <body>
 
     <script>
+        // normal function declaration =================
         function add7() {
             let input = prompt("enter a number");
             result = parseInt(input) + 7;
-            return result;
+            // return result;
+            alert(result);
         }
+
+        // add7();
+
+
+        // function expression ==================== multiply two input numbers
+        let multiple = function () {
+            let result = 1;
+
+            for(let i = 0; i < 2; i++) {
+                let input = parseFloat(prompt("enter a number"));
+                result *= input;
+
+            }
+            alert(result);
+        }
+        // multiple();
+
+
+        // arrow function =================== capitalize first letter in the string
+        let capitalize = (str) => { 
+            if (typeof str !== 'string' || str.length === 0) {
+                return '';
+            }
+            let result = (str.charAt(0).toUpperCase()) + str.slice(1);
+            alert(result);
+
+        };
+        // capitalize("hello");
+
+        // function called lastLetter that takes a string and returns the last letter
+        function lastLetter(str) {
+            if (typeof str !== 'string' || str.length === 0) {
+                return '';
+            }
+            let last = (str.charAt(str.length -1));
+            alert(last);
+        }
+        // lastLetter("abcd");
+
+        
+
     </script>
 
 </body>
