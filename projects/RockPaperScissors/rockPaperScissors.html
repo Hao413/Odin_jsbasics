@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+
+
+    <Script>
+        /* 
+        Game will be played against the computer.
+        You will write a function that randomly returns "Rock", “paper” or “scissors”.
+        */
+
+        // 2. Create a function named getComputerChoice to return rock or paper or scissors
+        // Hint: use Math.random
+        // Test the function returns using console.log or browser developer tools
+        function getComputerChoice() {
+            let i = Math.random();
+            if (i <= 0.33) {
+                console.log("rock");
+                return "rock";
+            }
+            else if (i <= 0.66) {
+                console.log("paper");
+                return "paper";
+            }
+            console.log("scissors");
+            return "scissors";
+        }
+        // getComputerChoice();
+
+        // 3. Game will be played by a human player.
+        // Create a new function named getHumanChoice
+        // Write the code so that getHumanChoice will return one of the valid choices depending
+        // on what the user inputs
+        // Hint: use prompt method to get the user's input
+        function getHumanChoice() {
+            let choice = prompt("choose rock, paper, or scissors").toLowerCase();
+
+            if (choice !== "rock" && choice !== "paper" && choice !== "scissors") {
+                alert("gotta be one of the three choices");
+            }
+            return choice;
+        }
+        // getHumanChoice();
+
+        // 4. create two new variables named humanScore and computerScore
+        let humanScore = 0;
+        let computerScore = 0;
+
+        // 5. create a new function called playRound
+        // - define two parameters for playRound: humanChoice and computerChoice. Use
+        // these two parameters to take the human and computer choices as arguments
+        // - Make humanChoice parameter case-insensitive
+        // - Write the code for your playRound function to console.log a string value
+        // representing the round winner, such as: "you lose, paper beats rock"
+        // - Increment the humanScore or computerScore variable based on the round winner
+
+        // function playRound(humanChoice, computerChoice) {
+        //     if (humanChoice === computerChoice) {
+        //         alert("It's a tie");
+        //     }
+        // }
+
+        // const humanSelection = getHumanChoice();
+        // const computerSelection = getComputerChoice();
+
+        // playRound(humanSelection, computerSelection);
+
+
+        // 6. create a new function named playGame
+        // move playRound function and score variables so that they are declared inside of the
+        // new playGame function
+        // play 5 rounds by calling playRound 5 times
+        function playGame() {
+            let j;
+            for (j = 1; j <= 5; j++) {
+                function playRound(humanChoice, computerChoice) {
+                    if (humanChoice === computerChoice) {
+                        alert("tie");
+                    } else if (humanChoice === "paper" && computerChoice === "rock") {
+                        alert("you win")
+                        humanScore++;
+                    } else if (humanChoice === "rock" && computerChoice === "scissors") {
+                        alert("you win")
+                        humanScore++;
+                    } else if (humanChoice === "scissors" && computerChoice === "paper") {
+                        alert("you win")
+                        humanScore++;
+                    } else {
+                        alert("computer wins")
+                        computerScore++;
+                    }
+                }
+
+                const humanSelection = getHumanChoice();
+                const computerSelection = getComputerChoice();
+
+                playRound(humanSelection, computerSelection);
+            }
+        }
+        playGame();
+
+        console.log("human score: " + humanScore);
+        console.log("computer score: " + computerScore);
+
+
+    </Script>
+
+
+
+</body>
+
+</html>
