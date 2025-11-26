@@ -11,7 +11,8 @@
 
 
     <script>
-        /* Write the function camelize(str) that changes dash-separated
+        /* 
+        Write the function camelize(str) that changes dash-separated
         words likes like "my-short-string" into camel-cased "myShortString".
 
         that is: removes all dashes, each word after dash becomes uppercased
@@ -36,8 +37,8 @@
         alert(camelize(string));
 
 
-        /*
-        Write a function filterRange(arr, a, b) that gets an array arr, 
+        /* Filter range
+        Write a function filterRange(arr, a, b) that gets a n array arr, 
         looks for elements with values higher or equal to a and
          lower or equal to b and return a result as an array.
         The function should not modify the array. It should return the new array.
@@ -46,7 +47,7 @@
         let arr = [5, 3, 8, 1];
         let filtered = filterRange(arr, 1, 4); //  1 <= ? <= 4
 
-        function filterRange(arr, a ,b) {
+        function filterRange(arr, a, b) {
             return arr.filter(item => (a <= item && item <= b));
         }
 
@@ -54,7 +55,7 @@
         // alert(arr);
 
 
-        /*
+        /* In-place filter
         Write a function filterRangeInPlace(arr, a, b) that gets an array arr
         and removes from it all values except those that between a and b
         the test is a <= arr[i] <= b.
@@ -63,7 +64,7 @@
         */
 
         function filterRangeInPlace(arr, a, b) {
-            for ( let i = 0; i < arr.length; i ++) {
+            for (let i = 0; i < arr.length; i++) {
                 let val = arr[i];
 
                 if (val < a || val > b) {
@@ -76,18 +77,18 @@
         alert(arr)
 
 
-        /*
+        /* Sort in decreasing order
         sort in decreasing order
         */
 
         let arr1 = [5, 2, 1, -10, 8];
 
         arr1.sort((a, b) => b - a);
-        
-        alert ( arr1); // 8, 5, 2, 1, -10
+
+        alert(arr1); // 8, 5, 2, 1, -10
 
 
-        /* 
+        /* Copy and sort array
         We have an array of strings arr2. We'd like to have a sorted copy of it,
         but keep arr unmodified.
         Create a function copySorted(arr2) that returns such a copy
@@ -104,6 +105,26 @@
 
         alert(sorted); // CSS, HTML, JavaScript
         alert(arr2); // HTML, JavaScript, CSS ( no changes)
+
+        /* shuffle an array
+        Write the function shuffle(array) that shuffles (random reorders)
+        elements of the array.
+        Multiple runs of shuffle may lead to different orders of elements.
+        */
+
+        let arr3 = [1, 2, 3];
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        shuffle(arr3);
+        alert(arr3)
+
     </script>
 </body>
 
